@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<robot name="model_o">
+    <group name="hand">
+        <link name="hand_base" />
+        <link name="hand_coupler" />
+        <link name="motor_space" />
+        <link name="simple_base" />
+        <link name="prox_t" />
+        <link name="distal_t" />
+        <link name="prox_rotate_l" />
+        <link name="prox_l" />
+        <link name="distal_l" />
+        <link name="prox_rotate_r" />
+        <link name="prox_r" />
+        <link name="distal_r" />
+        <joint name="base_to_prox_t" />
+        <joint name="prox_to_distal_t" />
+        <joint name="base_to_rot_l" />
+        <joint name="rot_to_prox_l" />
+        <joint name="prox_to_distal_l" />
+        <joint name="base_to_rot_r" />
+        <joint name="rot_to_prox_r" />
+        <joint name="prox_to_distal_r" />
+    </group>
+    <!--GROUP STATES-->
+    <group_state name="reset()" group="hand">
+        <joint name="base_to_prox_t" value="0" />
+        <joint name="prox_to_distal_t" value="0.1745" />
+        <joint name="base_to_rot_l" value="0" />
+        <joint name="rot_to_prox_l" value="0" />
+        <joint name="prox_to_distal_l" value="0.1745" />
+        <joint name="base_to_rot_r" value="0" />
+        <joint name="rot_to_prox_r" value="0" />
+        <joint name="prox_to_distal_r" value="0.1745" />
+    </group_state>
+    <group_state name="close()" group="hand">
+        <joint name="base_to_prox_t" value="1.5" />
+        <joint name="prox_to_distal_t" value="0.1745" />
+        <joint name="base_to_rot_l" value="0" />
+        <joint name="rot_to_prox_l" value="1.5" />
+        <joint name="prox_to_distal_l" value="0.1745" />
+        <joint name="base_to_rot_r" value="0" />
+        <joint name="rot_to_prox_r" value="1.5" />
+        <joint name="prox_to_distal_r" value="0.1745" />
+    </group_state>
+    <group_state name="adduct()" group="hand">
+        <joint name="base_to_prox_t" value="0" />
+        <joint name="prox_to_distal_t" value="0.1745" />
+        <joint name="base_to_rot_l" value="-1.5" />
+        <joint name="rot_to_prox_l" value="0" />
+        <joint name="prox_to_distal_l" value="0.1745" />
+        <joint name="base_to_rot_r" value="1.5" />
+        <joint name="rot_to_prox_r" value="0" />
+        <joint name="prox_to_distal_r" value="0.1745" />
+    </group_state>
+    <group_state name="pinch_close()" group="hand">
+        <joint name="base_to_prox_t" value="0" />
+        <joint name="prox_to_distal_t" value="0.1745" />
+        <joint name="base_to_rot_l" value="0" />
+        <joint name="rot_to_prox_l" value="1.257" />
+        <joint name="prox_to_distal_l" value="0.1745" />
+        <joint name="base_to_rot_r" value="0" />
+        <joint name="rot_to_prox_r" value="1.257" />
+        <joint name="prox_to_distal_r" value="0.1745" />
+    </group_state>
+    <group_state name="power_close()" group="hand">
+        <joint name="base_to_prox_t" value="1.88" />
+        <joint name="prox_to_distal_t" value="0.1745" />
+        <joint name="base_to_rot_l" value="-1.5" />
+        <joint name="rot_to_prox_l" value="1.88" />
+        <joint name="prox_to_distal_l" value="0.1745" />
+        <joint name="base_to_rot_r" value="1.5" />
+        <joint name="rot_to_prox_r" value="1.88" />
+        <joint name="prox_to_distal_r" value="0.1745" />
+    </group_state>
+    <!--DISABLE COLLISIONS -->
+    <disable_collisions link1="distal_l" link2="hand_coupler" reason="Never" />
+    <disable_collisions link1="distal_l" link2="prox_l" reason="Adjacent" />
+    <disable_collisions link1="distal_l" link2="prox_rotate_l" reason="Never" />
+    <disable_collisions link1="distal_r" link2="hand_coupler" reason="Never" />
+    <disable_collisions link1="distal_r" link2="prox_r" reason="Adjacent" />
+    <disable_collisions link1="distal_r" link2="prox_rotate_r" reason="Never" />
+    <disable_collisions link1="distal_t" link2="hand_coupler" reason="Never" />
+    <disable_collisions link1="distal_t" link2="prox_rotate_l" reason="Never" />
+    <disable_collisions link1="distal_t" link2="prox_rotate_r" reason="Never" />
+    <disable_collisions link1="distal_t" link2="prox_t" reason="Adjacent" />
+    <disable_collisions link1="hand_coupler" link2="motor_space" reason="Adjacent" />
+    <disable_collisions link1="hand_coupler" link2="prox_l" reason="Never" />
+    <disable_collisions link1="hand_coupler" link2="prox_r" reason="Never" />
+    <disable_collisions link1="hand_coupler" link2="prox_rotate_l" reason="Never" />
+    <disable_collisions link1="hand_coupler" link2="prox_rotate_r" reason="Never" />
+    <disable_collisions link1="hand_coupler" link2="prox_t" reason="Never" />
+    <disable_collisions link1="hand_coupler" link2="simple_base" reason="Never" />
+    <disable_collisions link1="motor_space" link2="prox_l" reason="Never" />
+    <disable_collisions link1="motor_space" link2="prox_r" reason="Never" />
+    <disable_collisions link1="motor_space" link2="prox_rotate_l" reason="Never" />
+    <disable_collisions link1="motor_space" link2="prox_rotate_r" reason="Never" />
+    <disable_collisions link1="motor_space" link2="prox_t" reason="Never" />
+    <disable_collisions link1="motor_space" link2="simple_base" reason="Adjacent" />
+    <disable_collisions link1="prox_l" link2="prox_rotate_l" reason="Adjacent" />
+    <disable_collisions link1="prox_l" link2="prox_rotate_r" reason="Never" />
+    <disable_collisions link1="prox_l" link2="simple_base" reason="Never" />
+    <disable_collisions link1="prox_r" link2="prox_rotate_l" reason="Never" />
+    <disable_collisions link1="prox_r" link2="prox_rotate_r" reason="Adjacent" />
+    <disable_collisions link1="prox_r" link2="simple_base" reason="Never" />
+    <disable_collisions link1="prox_rotate_l" link2="prox_rotate_r" reason="Never" />
+    <disable_collisions link1="prox_rotate_l" link2="prox_t" reason="Never" />
+    <disable_collisions link1="prox_rotate_l" link2="simple_base" reason="Adjacent" />
+    <disable_collisions link1="prox_rotate_r" link2="prox_t" reason="Never" />
+    <disable_collisions link1="prox_rotate_r" link2="simple_base" reason="Adjacent" />
+    <disable_collisions link1="prox_t" link2="simple_base" reason="Adjacent" />
+</robot>

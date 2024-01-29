@@ -1,0 +1,46 @@
+<robot name="box" xmlns:xacro="http://ros.org/wiki/xacro">
+<xacro:property name="robot_base_xyz" value="0 0 0.25"/>
+<xacro:property name="robot_base_rpy" value="0 0 0"/>
+<xacro:property name="robot_base_size" value="0.5 0.5 0.5"/>
+<xacro:property name="robot_base_rgba" value="0 0 1 1"/>
+<xacro:property name="rad_xyz" value="0 0 0"/>
+<xacro:property name="rad_rpy" value="0 0 0"/>
+<xacro:property name="rad_size_radius" value="0.1"/>
+<xacro:property name="rad_size_length" value="0.1"/>
+<xacro:property name="rad_rgba" value="1 0 0 1"/>
+<xacro:property name="rad_xyz_diff" value="0.3"/>
+<xacro:property name="joint_rpy" value="1.57 0 0"/>
+<xacro:property name="joint_axis_xyz" value="0 0 1"/>
+<link name="robot_base">
+<visual>
+<origin xyz="${robot_base_xyz}" rpy="${robot_base_rpy}" />
+<geometry>
+<box size="${robot_base_size}" />
+</geometry>
+<material name="blau">
+<color rgba="${robot_base_rgba}" />
+</material>
+</visual>
+</link>
+<xacro:macro name="rad" params="name flag">
+<link name="${name}_rad">
+<visual>
+<origin xyz="${rad_xyz}" rpy="${rad_rpy}" />
+<geometry>
+<cylinder radius="${rad_size_radius}" length="${rad_size_length}"/>
+</geometry>
+<material name="red">
+<color rgba="${rad_rgba}" />
+</material>
+</visual>
+</link>
+<joint name="base2${name}_rad" type="continuous">
+<parent link="robot_base" />
+<child link="${name}_rad" />
+<origin xyz="0 ${flag * rad_xyz_diff} 0" rpy="${joint_rpy}"/>
+<axis xyz="${joint_axis_xyz}" />
+</joint>
+</xacro:macro>
+<xacro:rad name="link" flag="1"/>
+<xacro:rad name="recht" flag="-1"/>
+</robot>

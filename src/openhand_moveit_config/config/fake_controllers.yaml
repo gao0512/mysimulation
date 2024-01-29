@@ -1,0 +1,15 @@
+controller_list:
+  - name: fake_hand_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - base_to_prox_t
+      - prox_to_distal_t
+      - base_to_rot_l
+      - rot_to_prox_l
+      - prox_to_distal_l
+      - base_to_rot_r
+      - rot_to_prox_r
+      - prox_to_distal_r
+initial:  # Define initial robot poses.
+  - group: hand
+    pose: p1

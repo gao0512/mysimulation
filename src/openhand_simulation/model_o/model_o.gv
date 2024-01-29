@@ -1,0 +1,38 @@
+digraph G {
+node [shape=box];
+"hand_base" [label="hand_base"];
+"hand_coupler" [label="hand_coupler"];
+"motor_space" [label="motor_space"];
+"simple_base" [label="simple_base"];
+"prox_t" [label="prox_t"];
+"distal_t" [label="distal_t"];
+"prox_rotate_l" [label="prox_rotate_l"];
+"prox_l" [label="prox_l"];
+"distal_l" [label="distal_l"];
+"prox_rotate_r" [label="prox_rotate_r"];
+"prox_r" [label="prox_r"];
+"distal_r" [label="distal_r"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"hand_base" -> "fixed1" [label="xyz: -0.000381 0 0 \nrpy: 0 -0 0"]
+"fixed1" -> "hand_coupler"
+"hand_coupler" -> "fixed2" [label="xyz: -0.03381 0 0 \nrpy: 0 -0 0"]
+"fixed2" -> "motor_space"
+"motor_space" -> "fixed3" [label="xyz: -0.0315 -0.0075 0 \nrpy: 0 -0 0"]
+"fixed3" -> "simple_base"
+"simple_base" -> "base_to_prox_t" [label="xyz: -0.023 0.034 0 \nrpy: 0 -0 0"]
+"base_to_prox_t" -> "prox_t"
+"prox_t" -> "prox_to_distal_t" [label="xyz: 0.0008 0.062 0 \nrpy: 0 -0 0"]
+"prox_to_distal_t" -> "distal_t"
+"simple_base" -> "base_to_rot_l" [label="xyz: -0.003 -0.034 -0.027 \nrpy: -1.5708 -0 0"]
+"base_to_rot_l" -> "prox_rotate_l"
+"prox_rotate_l" -> "rot_to_prox_l" [label="xyz: -0.02 0 0 \nrpy: 0 -0 0"]
+"rot_to_prox_l" -> "prox_l"
+"prox_l" -> "prox_to_distal_l" [label="xyz: 0.0008 0.062 0 \nrpy: 0 -0 0"]
+"prox_to_distal_l" -> "distal_l"
+"simple_base" -> "base_to_rot_r" [label="xyz: -0.003 -0.034 0.027 \nrpy: 1.5708 -0 0"]
+"base_to_rot_r" -> "prox_rotate_r"
+"prox_rotate_r" -> "rot_to_prox_r" [label="xyz: -0.02 0 0 \nrpy: 0 -0 0"]
+"rot_to_prox_r" -> "prox_r"
+"prox_r" -> "prox_to_distal_r" [label="xyz: 0.0008 0.062 0 \nrpy: 0 -0 0"]
+"prox_to_distal_r" -> "distal_r"
+}

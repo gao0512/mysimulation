@@ -1,0 +1,6 @@
+<launch>
+<param name="robot_description" textfile="$(find openhand_simulation)/xacro/model_o.xacro.urdf"/>
+<include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+<node pkg="gazebo_ros" type="spawn_model" name="spawn_model" args="-urdf -model model_o -param robot_description"/>
+
+</launch>

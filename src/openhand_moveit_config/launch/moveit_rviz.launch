@@ -1,0 +1,7 @@
+<launch>
+
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false"
+        args="-d $(find openhand_simulation)/model_o/model_o.rviz" output="screen">
+  </node>
+
+</launch>

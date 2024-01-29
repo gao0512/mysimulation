@@ -1,0 +1,8 @@
+prefix=/home/gao/mysimulation/devel
+
+Name: openhand_simulation
+Description: Description of openhand_simulation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

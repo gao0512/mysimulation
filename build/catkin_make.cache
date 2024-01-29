@@ -1,0 +1,2 @@
+hand_move_demo:openhand_moveit_config:openhand_simulation
+-DCATKIN_DEVEL_PREFIX=/home/gao/mysimulation/devel -DCMAKE_INSTALL_PREFIX=/home/gao/mysimulation/install -G Unix Makefiles

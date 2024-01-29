@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: openhand_simulation
+    relative_path: model_o/model_o.xacro.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: openhand_simulation/model_o/model_o.srdf
+  CONFIG:
+    author_name: gao
+    author_email: xx@163.com
+    generated_timestamp: 1704466298

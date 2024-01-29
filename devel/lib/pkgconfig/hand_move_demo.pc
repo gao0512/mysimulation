@@ -1,0 +1,8 @@
+prefix=/home/gao/mysimulation/devel
+
+Name: hand_move_demo
+Description: Description of hand_move_demo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

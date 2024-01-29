@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- This file makes it easy to include different planning pipelines  -->
+
+  <arg name="pipeline" default="ompl" />
+
+  <!-- define capabilites that are loaded on start (space seperated) -->
+  <arg name="capabilities" default=""/>
+
+  <!-- inhibit capabilites (space seperated) -->
+  <arg name="disable_capabilities" default=""/>
+
+  <include file="$(find openhand_moveit_config)/launch/$(arg pipeline)_planning_pipeline.launch.xml">
+    <arg name="capabilities" value="$(arg capabilities)"/>
+    <arg name="disable_capabilities" value="$(arg disable_capabilities)"/>
+  </include>
+
+</launch>
